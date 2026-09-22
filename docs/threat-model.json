@@ -1,0 +1,94 @@
+{
+  "he_thong": "Hệ thống bán hàng online ShopLab, gồm trình duyệt, máy chủ ứng dụng và cơ sở dữ liệu",
+  "thanh_phan": [
+    { "ten": "Trình duyệt khách hàng", "vai_tro": "Đăng nhập, xem sản phẩm, gửi yêu cầu đặt hàng" },
+    { "ten": "Máy chủ ứng dụng", "vai_tro": "Xác thực người dùng, kiểm tra quyền, ghi nhận đơn hàng" },
+    { "ten": "Cơ sở dữ liệu", "vai_tro": "Lưu tài khoản, sản phẩm và lịch sử đơn hàng của khách" }
+  ],
+ "moi_de_doa": [
+  {
+    "ma": "M01",
+    "phat_bieu": "Kẻ tấn công đọc được đơn hàng của mọi khách hàng nếu máy chủ ứng dụng ghép trực tiếp mã khách hàng vào câu truy vấn SQL mà không kiểm tra đầu vào.",
+    "nguyen_ly": 1,
+    "attack": "T1190",
+    "tac_dong": 5,
+    "kha_nang": 3
+  },
+  {
+    "ma": "M02",
+    "phat_bieu": "Một khách hàng đã đăng nhập xem được đơn hàng của khách hàng khác nếu máy chủ ứng dụng không lọc kết quả truy vấn theo mã người dùng hiện tại.",
+    "nguyen_ly": 2,
+    "attack": "T1213",
+    "tac_dong": 4,
+    "kha_nang": 3
+  },
+  {
+    "ma": "M03",
+    "phat_bieu": "Kẻ tấn công chiếm được phiên đăng nhập của khách hàng nếu token phiên bị gửi qua kết nối HTTP không mã hóa và bị nghe lén trên mạng.",
+    "nguyen_ly": 3,
+    "attack": "T1539",
+    "tac_dong": 4,
+    "kha_nang": 2
+  },
+  {
+    "ma": "M04",
+    "phat_bieu": "Kẻ tấn công dò được mật khẩu của khách hàng nếu máy chủ ứng dụng không giới hạn số lần đăng nhập sai trong một khoảng thời gian ngắn.",
+    "nguyen_ly": 4,
+    "attack": "T1110",
+    "tac_dong": 3,
+    "kha_nang": 4
+  },
+  {
+    "ma": "M05",
+    "phat_bieu": "Kẻ tấn công đánh cắp token phiên của khách hàng khác nếu máy chủ ứng dụng hiển thị bình luận sản phẩm mà không mã hóa ký tự đặc biệt trong nội dung.",
+    "nguyen_ly": 1,
+    "attack": "T1059.007",
+    "tac_dong": 3,
+    "kha_nang": 3
+  },
+  {
+    "ma": "M06",
+    "phat_bieu": "Kẻ tấn công xác định được email nào đã đăng ký nếu máy chủ ứng dụng trả về thông báo lỗi khác nhau giữa trường hợp email không tồn tại và mật khẩu sai.",
+    "nguyen_ly": 6,
+    "attack": "T1589.002",
+    "tac_dong": 2,
+    "kha_nang": 4
+  },
+  {
+    "ma": "M07",
+    "phat_bieu": "Kẻ tấn công đọc được mật khẩu gốc của toàn bộ khách hàng nếu cơ sở dữ liệu lưu mật khẩu dạng văn bản thuần hoặc băm bằng thuật toán đã lỗi thời.",
+    "nguyen_ly": 5,
+    "attack": "T1552.001",
+    "tac_dong": 5,
+    "kha_nang": 2
+  },
+  {
+    "ma": "M08",
+    "phat_bieu": "Kẻ tấn công thay đổi được trạng thái đơn hàng của khách hàng khác nếu máy chủ ứng dụng không kiểm tra quyền sở hữu đơn hàng trước khi cập nhật trạng thái.",
+    "nguyen_ly": 2,
+    "attack": "T1565.001",
+    "tac_dong": 4,
+    "kha_nang": 2
+  }
+],
+  "chon_xu_ly": [
+  {
+    "ma": "M01",
+    "chi_phi": 4,
+    "don_vi": "giờ công kỹ sư",
+    "can_cu": "Ước lượng dựa trên thời gian chuyển toàn bộ câu truy vấn sang dạng tham số hóa và viết lại test liên quan"
+  },
+  {
+    "ma": "M02",
+    "chi_phi": 3,
+    "don_vi": "giờ công kỹ sư",
+    "can_cu": "Ước lượng dựa trên thời gian thêm điều kiện lọc theo mã người dùng vào các truy vấn đọc đơn hàng hiện có"
+  },
+  {
+    "ma": "M04",
+    "chi_phi": 2,
+    "don_vi": "giờ công kỹ sư",
+    "can_cu": "Ước lượng dựa trên thời gian tích hợp thư viện giới hạn tốc độ có sẵn vào endpoint đăng nhập"
+  }
+]
+}
